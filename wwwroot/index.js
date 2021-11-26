@@ -10,8 +10,18 @@ const processar = (event) => {
     const sobrenomeDigitado = campoSobrenome.value;
 
     // Realizar a ação (PROCESSAMENTO)
-    const nomeCompleto = `${nomeDigitado} ${sobrenomeDigitado}`;
-    const nomeCatalogo = `${sobrenomeDigitado.toUpperCase()}, ${nomeDigitado}`;
+    // const nomeCompleto = `${nomeDigitado} ${sobrenomeDigitado}`;
+    // const nomeCatalogo = `${sobrenomeDigitado.toUpperCase()}, ${nomeDigitado}`;
+
+    fetch('/Nome', {
+        method: 'POST'
+        Headers: {
+            "Content-Type"
+        }
+    }
+    
+    
+    )
 
     // Exibir os resultados (SAÍDA)
     const mensagem = document.querySelector('#mensagem');
