@@ -1,22 +1,23 @@
 using System;
-using Microsoft.AsNetCore.Mvc;
-using NomeCompletoDevWeb.
+using Microsoft.AspNetCore.Mvc;
+using NomeCompletoDevWeb.Models;
 
 namespace NomeCompletoDevWeb.Controllers
 {
     [ApiController]
-    public class NomecompretoDevWeb
+    [Route("[controller]")]
+    public class Nome : ControllerBase
     {
-        [httpPost]
-        public Nomes Post(NomeCliente nomeRecebido)
+        [HttpPost]
+        public ActionResult<Nomes> Post(NomeCliente nomeRecebido)
         {
-
-            var nomeProcessado = new Nomes {
-                NomeCompreto = $"{nomeRecebido.nome} {nomeRecebido.sobrenome}",
+            var nomeProcessado = new Nomes() {
+                NomeCompleto = $"{nomeRecebido.nome} {nomeRecebido.sobrenome}",
                 NomeCatalogo = $"{nomeRecebido.sobrenome.ToUpper()}, {nomeRecebido.nome}",
             };
 
-            return nomeProcessado;
+            return Ok(nomeProcessado);
         }
+        
     }
-}
+} 
